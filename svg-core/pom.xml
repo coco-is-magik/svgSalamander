@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.blackears</groupId>
+        <groupId>cocoismagik</groupId>
         <artifactId>svgSalamanderParent</artifactId>
-        <version>1.1.5-SNAPSHOT</version>
+        <version>1.1.6-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -16,7 +16,7 @@
 
     <name>${groupId}:${artifactId}</name>
     <description>A tool for displaying and playing SVG content using the Java2D.</description>
-    <url>https://github.com/blackears/svgSalamander</url>
+    <url>https://github.com/coco-is-magik/svgSalamander</url>
 
     <licenses>
         <license>
@@ -27,42 +27,16 @@
 
     <developers>
         <developer>
-            <name>Mark McKay</name>
-            <email>mark@kitfox.com</email>
-            <organization>kitfox.com</organization>
-            <organizationUrl>http://www.kitfox.com</organizationUrl>
+            <name>cocoismagik</name>
+            <email>coco_is_magik@disroot.org</email>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/blackears/svgSalamander.git</connection>
-        <developerConnection>scm:git:ssh://github.com:blackears/svgSalamander.git</developerConnection>
-        <url>https://github.com/blackears/svgSalamander/tree/master/svg-core</url>
+        <connection>scm:git:git://github.com/coco-is-magik/svgSalamander.git</connection>
+        <developerConnection>scm:git:ssh://github.com:coco-is-magik/svgSalamander.git</developerConnection>
+        <url>https://github.com/coco-is-magik/svgSalamander/tree/master/svg-core</url>
     </scm>
-
-    <distributionManagement>
-        <!--
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-            -->
-            
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <maven.compiler.source>1.9</maven.compiler.source>
@@ -150,17 +124,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.0</version>
@@ -173,19 +136,6 @@
             <id>deploy</id>
             <build>
                 <plugins>
-                    <plugin>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
                     <plugin>
                         <artifactId>maven-source-plugin</artifactId>
                         <version>3.0.1</version>

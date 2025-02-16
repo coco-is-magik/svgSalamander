@@ -4,18 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.github.blackears</groupId>
+        <groupId>cocoismagik</groupId>
         <artifactId>svgSalamanderParent</artifactId>
-        <version>1.1.5-SNAPSHOT</version>
+        <version>1.1.6-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>svgSalamander-examples</artifactId>
     <packaging>jar</packaging>
 
-    <name>com.kitfox:svgSalamander Examples</name>
+    <name>${groupId}:${artifactId}</name>
     <description>Examples for displaying and playing SVG content using the Java2D.</description>
-    <url>https://github.com/blackears/svgSalamander</url>
+    <url>https://github.com/coco-is-magik/svgSalamander</url>
 
     <licenses>
         <license>
@@ -26,17 +26,15 @@
 
     <developers>
         <developer>
-            <name>Mark McKay</name>
-            <email>mark@kitfox.com</email>
-            <organization>kitfox.com</organization>
-            <organizationUrl>http://www.kitfox.com</organizationUrl>
+            <name>cocoismagik</name>
+            <email>coco_is_magik@disroot.org</email>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/blackears/svgSalamander.git</connection>
-        <developerConnection>scm:git:ssh://github.com:blackears/svgSalamander.git</developerConnection>
-        <url>https://github.com/blackears/svgSalamander/tree/master/svg-examples</url>
+        <connection>scm:git:git://github.com/coco-is-magik/svgSalamander.git</connection>
+        <developerConnection>scm:git:ssh://github.com:coco-is-magik/svgSalamander.git</developerConnection>
+        <url>https://github.com/coco-is-magik/svgSalamander/tree/master/svg-examples</url>
     </scm>
 
     <properties>
