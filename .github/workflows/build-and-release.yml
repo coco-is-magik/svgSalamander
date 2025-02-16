@@ -61,5 +61,5 @@ jobs:
           tag: ${{ env.VERSION }}
           name: Release ${{ env.VERSION }}
           body: "Automated release for version ${{ env.VERSION }}"
-          files: |
+          artifacts: |
             target/*.jar
