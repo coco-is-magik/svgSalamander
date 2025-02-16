@@ -31,25 +31,19 @@
  * Mark McKay can be contacted at mark@kitfox.com.  Salamander and other
  * projects can be found at http://www.kitfox.com
  */
-
 package com.kitfox.svg.app.data;
 
 import com.kitfox.svg.SVGConst;
-import com.kitfox.svg.util.Base64InputStream;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
+import java.util.Base64;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author kitfox
- */
 public class Handler extends URLStreamHandler
 {
     class Connection extends URLConnection
@@ -71,21 +65,10 @@ public class Handler extends URLStreamHandler
                 content = content.substring(7);
                 try
                 {
-//byte[] buf2 = new sun.misc.BASE64Decoder().decodeBuffer(content);
-//buf = new sun.misc.BASE64Decoder().decodeBuffer(content);
-                    
-                    ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
-                    Base64InputStream b64is = new Base64InputStream(bis);
-                    
-                    ByteArrayOutputStream bout = new ByteArrayOutputStream();
-                    byte[] tmp = new byte[2056];
-                    for (int size = b64is.read(tmp); size != -1; size = b64is.read(tmp))
-                    {
-                        bout.write(tmp, 0, size);
-                    }
-                    buf = bout.toByteArray();
+                    // Use the modern Java Base64 decoder
+                    buf = Base64.getDecoder().decode(content);
                 }
-                catch (IOException e)
+                catch (IllegalArgumentException e)
                 {
                     Logger.getLogger(SVGConst.SVG_LOGGER).log(Level.WARNING, null, e);
                 }
@@ -104,7 +87,6 @@ public class Handler extends URLStreamHandler
             {
                 return mime;
             }
-
             return super.getHeaderField(name);
         }
 
@@ -113,11 +95,6 @@ public class Handler extends URLStreamHandler
         {
             return new ByteArrayInputStream(buf);
         }
-
-//        public Object getContent() throws IOException
-//        {
-//            BufferedImage img = ImageIO.read(getInputStream());
-//        }
     }
 
     @Override
@@ -125,5 +102,4 @@ public class Handler extends URLStreamHandler
     {
         return new Connection(u);
     }
-
 }
