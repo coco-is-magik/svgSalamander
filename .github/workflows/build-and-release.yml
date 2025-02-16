@@ -62,4 +62,5 @@ jobs:
           name: Release ${{ env.VERSION }}
           body: "Automated release for version ${{ env.VERSION }}"
           artifacts: |
-            target/*.jar
+            svg-core/target/*.jar
+            svg-example/target/*.jar
