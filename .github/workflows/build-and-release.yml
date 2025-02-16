@@ -42,18 +42,17 @@ jobs:
           script: |
             const version = process.env.VERSION;
             try {
-              const { data: release } = await github.rest.repos.getReleaseByTag({
+              await github.rest.repos.getReleaseByTag({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 tag: version
               });
               core.info(`Release for version ${version} already exists.`);
-              return { exists: 'true' };
+              core.setOutput("exists", "true");
             } catch (error) {
               core.info(`No release found for version ${version}.`);
-              return { exists: 'false' };
+              core.setOutput("exists", "false");
             }
-          result-encoding: string
 
       - name: Create GitHub Release with jars
         if: steps.release_check.outputs.exists == 'false'
